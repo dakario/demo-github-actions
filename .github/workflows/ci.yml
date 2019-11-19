@@ -5,7 +5,7 @@
     runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@v1
-       - name: Use Node.js 8.x
+       - name: Use Node.js 8.x 
          uses: actions/setup-node@v1
          with:
            registry-url: https://npm.pkg.github.com/
@@ -15,12 +15,10 @@
          run: |
            npm install
            npm run build --if-present
-           npm test     
-       - name: publish
-         env:
-           NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-         run: |
-           npm run deploy
-       - uses: modoulo/ci-cd-with-git-action@v2
+           npm test   
+       - name: build docker images
+         uses: dakario/docker-build-push-action@master
          with:
-           input-variable: value
+          name: modoulobolysow/image-name
+          username: ${{ secrets.docker_login}}
+          password: ${{ secrets.docker_password}}

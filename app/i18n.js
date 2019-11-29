@@ -19,3 +19,4 @@ module.exports = function translate(phrase, lang) {
     
     return phraseMap[lang] || phrase;
 };
+ 

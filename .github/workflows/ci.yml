@@ -19,6 +19,6 @@
        - name: build docker images
          uses: dakario/docker-build-push-action@master
          with:
-          name: modoulobolysow/test-demo-meetup
+          name: beopenit/test-demo-meetup
           username: ${{ secrets.docker_login}}
           password: ${{ secrets.docker_password}}

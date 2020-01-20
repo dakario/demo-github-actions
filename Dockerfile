@@ -1,5 +1,5 @@
 FROM node:12.2.0
-
+ 
 ENV NODE_ENV=prod
 
 WORKDIR /usr/src/app
